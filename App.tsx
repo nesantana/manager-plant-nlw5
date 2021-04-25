@@ -1,6 +1,7 @@
-import React from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import Welcome from './src/pages/Welcome';
+import React from 'react'
+import { StyleSheet, SafeAreaView } from 'react-native'
+import UserIdentification from './src/pages/UserIdentification'
+import AppLoading from 'expo-app-loading'
 import {
   useFonts,
   Jost_400Regular,
@@ -13,9 +14,11 @@ export default function App() {
     Jost_600SemiBold
   })
 
+  if (!fontsLoaded) return <AppLoading />
+
   return (
     <SafeAreaView style={styles.container}>
-      <Welcome />
+      <UserIdentification />
     </SafeAreaView>
   );
 }
@@ -27,4 +30,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
